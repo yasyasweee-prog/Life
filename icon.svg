@@ -1,0 +1,129 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <!-- Background gradient: warm cream to soft rose -->
+    <radialGradient id="bgGrad" cx="40%" cy="35%" r="70%">
+      <stop offset="0%" stop-color="#fff0f4"/>
+      <stop offset="100%" stop-color="#f5d0dc"/>
+    </radialGradient>
+
+    <!-- Petal gradients -->
+    <radialGradient id="petalRose" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" stop-color="#fde8ed"/>
+      <stop offset="60%" stop-color="#f2a7b8"/>
+      <stop offset="100%" stop-color="#e07a94"/>
+    </radialGradient>
+    <radialGradient id="petalLav" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" stop-color="#ede8f9"/>
+      <stop offset="60%" stop-color="#c9b8e8"/>
+      <stop offset="100%" stop-color="#a894d4"/>
+    </radialGradient>
+    <radialGradient id="petalPeach" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" stop-color="#fef3ea"/>
+      <stop offset="60%" stop-color="#f9c9a8"/>
+      <stop offset="100%" stop-color="#e8a070"/>
+    </radialGradient>
+    <radialGradient id="petalSage" cx="50%" cy="0%" r="100%">
+      <stop offset="0%" stop-color="#e4f1eb"/>
+      <stop offset="60%" stop-color="#b5d5c5"/>
+      <stop offset="100%" stop-color="#88b8a0"/>
+    </radialGradient>
+
+    <!-- Center glow -->
+    <radialGradient id="centerGrad" cx="45%" cy="38%" r="65%">
+      <stop offset="0%" stop-color="#ffffff"/>
+      <stop offset="70%" stop-color="#fff8f5"/>
+      <stop offset="100%" stop-color="#fde8ed"/>
+    </radialGradient>
+
+    <!-- Outer glow for petals -->
+    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
+      <feGaussianBlur stdDeviation="5" result="blur"/>
+      <feMerge>
+        <feMergeNode in="blur"/>
+        <feMergeNode in="SourceGraphic"/>
+      </feMerge>
+    </filter>
+    <filter id="softShadow" x="-15%" y="-15%" width="130%" height="130%">
+      <feDropShadow dx="0" dy="3" stdDeviation="6" flood-color="#e07a94" flood-opacity="0.25"/>
+    </filter>
+    <filter id="centerShadow">
+      <feDropShadow dx="0" dy="2" stdDeviation="8" flood-color="#c9a0b0" flood-opacity="0.2"/>
+    </filter>
+  </defs>
+
+  <!-- Rounded square background (iOS style) -->
+  <rect width="512" height="512" rx="115" ry="115" fill="url(#bgGrad)"/>
+
+  <!-- Subtle texture overlay -->
+  <rect width="512" height="512" rx="115" ry="115" fill="white" opacity="0.08"/>
+
+  <!-- === OUTER PETALS (8, slightly larger, behind) === -->
+  <g transform="translate(256,256)" opacity="0.55" filter="url(#glow)">
+    <!-- Rose petals N/S/E/W -->
+    <ellipse cx="0" cy="-138" rx="34" ry="68" fill="url(#petalRose)" transform="rotate(0)"/>
+    <ellipse cx="0" cy="-138" rx="34" ry="68" fill="url(#petalLav)" transform="rotate(90)"/>
+    <ellipse cx="0" cy="-138" rx="34" ry="68" fill="url(#petalRose)" transform="rotate(180)"/>
+    <ellipse cx="0" cy="-138" rx="34" ry="68" fill="url(#petalLav)" transform="rotate(270)"/>
+    <!-- Diagonal -->
+    <ellipse cx="0" cy="-138" rx="28" ry="62" fill="url(#petalPeach)" transform="rotate(45)"/>
+    <ellipse cx="0" cy="-138" rx="28" ry="62" fill="url(#petalSage)" transform="rotate(135)"/>
+    <ellipse cx="0" cy="-138" rx="28" ry="62" fill="url(#petalPeach)" transform="rotate(225)"/>
+    <ellipse cx="0" cy="-138" rx="28" ry="62" fill="url(#petalSage)" transform="rotate(315)"/>
+  </g>
+
+  <!-- === INNER PETALS (8, main, in front) === -->
+  <g transform="translate(256,256)" filter="url(#softShadow)">
+    <!-- Main 4 petals -->
+    <ellipse cx="0" cy="-116" rx="42" ry="82" fill="url(#petalRose)" transform="rotate(0)" opacity="0.95"/>
+    <ellipse cx="0" cy="-116" rx="42" ry="82" fill="url(#petalLav)" transform="rotate(90)" opacity="0.92"/>
+    <ellipse cx="0" cy="-116" rx="42" ry="82" fill="url(#petalRose)" transform="rotate(180)" opacity="0.95"/>
+    <ellipse cx="0" cy="-116" rx="42" ry="82" fill="url(#petalLav)" transform="rotate(270)" opacity="0.92"/>
+    <!-- Diagonal 4 petals -->
+    <ellipse cx="0" cy="-108" rx="36" ry="70" fill="url(#petalPeach)" transform="rotate(45)" opacity="0.88"/>
+    <ellipse cx="0" cy="-108" rx="36" ry="70" fill="url(#petalSage)" transform="rotate(135)" opacity="0.85"/>
+    <ellipse cx="0" cy="-108" rx="36" ry="70" fill="url(#petalPeach)" transform="rotate(225)" opacity="0.88"/>
+    <ellipse cx="0" cy="-108" rx="36" ry="70" fill="url(#petalSage)" transform="rotate(315)" opacity="0.85"/>
+  </g>
+
+  <!-- === CENTER CIRCLE === -->
+  <circle cx="256" cy="256" r="88" fill="url(#centerGrad)" filter="url(#centerShadow)"/>
+  <!-- Inner ring detail -->
+  <circle cx="256" cy="256" r="82" fill="none" stroke="#f2a7b8" stroke-width="1.5" opacity="0.4"/>
+
+  <!-- === LETTER B — elegant, custom path feel === -->
+  <text
+    x="256" y="298"
+    font-family="'Georgia', 'Palatino Linotype', serif"
+    font-size="96"
+    font-weight="700"
+    text-anchor="middle"
+    fill="#d4607c"
+    opacity="0.92"
+    letter-spacing="-3"
+  >B</text>
+
+  <!-- tiny dot details — stamens -->
+  <g transform="translate(256,256)" opacity="0.7">
+    <circle cx="0" cy="-94" r="4.5" fill="#f2a7b8"/>
+    <circle cx="94" cy="0" r="4.5" fill="#c9b8e8"/>
+    <circle cx="0" cy="94" r="4.5" fill="#f2a7b8"/>
+    <circle cx="-94" cy="0" r="4.5" fill="#c9b8e8"/>
+    <circle cx="66" cy="-66" r="3.5" fill="#f9c9a8"/>
+    <circle cx="66" cy="66" r="3.5" fill="#b5d5c5"/>
+    <circle cx="-66" cy="66" r="3.5" fill="#f9c9a8"/>
+    <circle cx="-66" cy="-66" r="3.5" fill="#b5d5c5"/>
+  </g>
+
+  <!-- Sparkle top right -->
+  <g transform="translate(390,105)" opacity="0.6">
+    <line x1="0" y1="-10" x2="0" y2="10" stroke="#f2a7b8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-10" y1="0" x2="10" y2="0" stroke="#f2a7b8" stroke-width="2" stroke-linecap="round"/>
+    <line x1="-7" y1="-7" x2="7" y2="7" stroke="#f2a7b8" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="7" y1="-7" x2="-7" y2="7" stroke="#f2a7b8" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+  <!-- Sparkle bottom left -->
+  <g transform="translate(122,400)" opacity="0.45">
+    <line x1="0" y1="-7" x2="0" y2="7" stroke="#b5d5c5" stroke-width="1.5" stroke-linecap="round"/>
+    <line x1="-7" y1="0" x2="7" y2="0" stroke="#b5d5c5" stroke-width="1.5" stroke-linecap="round"/>
+  </g>
+</svg>
